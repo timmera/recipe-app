@@ -1,40 +1,21 @@
 import { RecipeItemCard } from '../components/RecipeItemCard';
-import { Box, Flex, Heading, Image } from '@chakra-ui/react';
-import { RecipeSearch } from '../components/RecipeSearch';
-import { RecipeItemPage } from './RecipeItemPage';
-import { useState } from 'react';
-
-import { data } from '../utils/data';
+import { Box, Flex } from '@chakra-ui/react';
 import '../App.css';
 
-export const RecipeListPage = ({ clickFn }) => {
-  const recipes = data.hits;
-  const [selectedItem, setSelectedItem] = useState();
+export const RecipeListPage = ({ recipes, clickFn }) => {
   return (
     <>
-      <Heading color="whitesmoke" m={'6'}>
-        My Recipe App
-      </Heading>
-      <Flex justifyContent="center">
-        <Box>
-          <RecipeSearch clickFn={setSelectedItem} />
-        </Box>
-      </Flex>
-      <Flex
-        alignItems="center"
-        gap="4"
-        wrap="wrap"
-        justifyContent="center"
-        direction="row"
-      >
-        {recipes.map((item) => (
-          <RecipeItemCard
-            clickFn={clickFn}
-            item={item}
-            key={item.recipe.label}
-          />
-        ))}
-      </Flex>
+      <Box h={'100vh'}>
+        <Flex gap="4" wrap="wrap" justifyContent="center" direction="row">
+          {recipes.map((recipe) => (
+            <RecipeItemCard
+              recipe={recipe}
+              key={recipe.recipe.label}
+              clickFn={clickFn}
+            />
+          ))}
+        </Flex>
+      </Box>
     </>
   );
 };

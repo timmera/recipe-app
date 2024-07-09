@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Text } from '@chakra-ui/react';
 import { TextInput } from './ui/TextInput';
+import { RecipeListPage } from '../pages/RecipeListPage';
 import { data } from '../utils/data';
-import { RecipeList } from './RecipeList';
+import { Box } from '@chakra-ui/react';
 
 export const RecipeSearch = ({ clickFn }) => {
   const recipes = data.hits;
@@ -12,9 +12,11 @@ export const RecipeSearch = ({ clickFn }) => {
     setSearchField(event.target.value);
   };
 
-  const matchedRecipes = recipes.filter((recipe) =>
-    recipe.recipe.label.toLowerCase().includes(searchField.toLowerCase())
-  );
+  const matchedRecipes = recipes.filter((recipe) => {
+    return recipe.recipe.label
+      .toLowerCase()
+      .includes(searchField.toLowerCase());
+  });
 
   return (
     <>
@@ -23,6 +25,8 @@ export const RecipeSearch = ({ clickFn }) => {
         width={{ base: '60vw', md: '600px' }}
         mb={8}
       />
+
+      <RecipeListPage clickFn={clickFn} recipes={matchedRecipes} />
     </>
   );
 };

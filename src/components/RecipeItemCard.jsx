@@ -12,21 +12,21 @@ import {
 } from '@chakra-ui/react';
 import '../App.css';
 
-export const RecipeItemCard = ({ item, clickFn }) => {
-  const dietLabels = item.recipe.dietLabels;
-  const healthLabels = item.recipe.healthLabels;
-  const cautionLabels = item.recipe.cautions;
-  const mealTypes = item.recipe.mealType;
-  const dishTypes = item.recipe.dishType;
+export const RecipeItemCard = ({ recipe, clickFn }) => {
+  const dietLabels = recipe.recipe.dietLabels;
+  const healthLabels = recipe.recipe.healthLabels;
+  const cautionLabels = recipe.recipe.cautions;
+  const mealTypes = recipe.recipe.mealType;
+  const dishTypes = recipe.recipe.dishType;
   const matchVeganHealthLabel = healthLabels.includes('Vegan');
   return (
     <Card
+      onClick={() => clickFn(recipe)}
       borderRadius="full"
       w="sm"
       h="100%"
       m="2"
       minHeight={'70vh'}
-      onClick={() => clickFn(item)}
       cursor="pointer"
       overflow={'hidden'}
       _hover={{
@@ -48,7 +48,7 @@ export const RecipeItemCard = ({ item, clickFn }) => {
           overflow="hidden"
           minHeight={'70vh'}
         >
-          <Image h={64} w="sm" src={item.recipe.image} />
+          <Image h={64} w="sm" src={recipe.recipe.image} />
           {dishTypes.length > 0 ? (
             <>
               {dishTypes.map((dishType, index) => (
@@ -59,7 +59,7 @@ export const RecipeItemCard = ({ item, clickFn }) => {
             </>
           ) : null}
           <Heading fontSize={'24'} textAlign={'center'} mb={'2'}>
-            {item.recipe.label}
+            {recipe.recipe.label}
             {matchVeganHealthLabel ? (
               <Badge variant="solid" colorScheme="green" ml="2">
                 <Text>Vegan</Text>
