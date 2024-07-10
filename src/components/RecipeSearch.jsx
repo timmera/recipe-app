@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { TextInput } from './ui/TextInput';
 import { RecipeListPage } from '../pages/RecipeListPage';
 import { data } from '../utils/data';
-import { Box } from '@chakra-ui/react';
 
 export const RecipeSearch = ({ clickFn }) => {
   const recipes = data.hits;

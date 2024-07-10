@@ -5,7 +5,7 @@ import '../App.css';
 export const RecipeListPage = ({ recipes, clickFn }) => {
   return (
     <>
-      <Box h={'100vh'}>
+      <Box>
         <Flex gap="4" wrap="wrap" justifyContent="center" direction="row">
           {recipes.map((recipe) => (
             <RecipeItemCard

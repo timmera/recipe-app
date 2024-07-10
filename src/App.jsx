@@ -8,22 +8,20 @@ export const App = () => {
   const [selectedItem, setSelectedItem] = useState();
   return (
     <>
-      <Box h={'100%'}>
-        <Box bgGradient="linear(to-r, blue.300, green.400, orange.200)">
-          <div className="App">
-            {selectedItem ? (
-              <RecipeItemPage recipe={selectedItem} clickFn={setSelectedItem} />
-            ) : (
-              <>
-                <Heading color="whitesmoke" m={'6'}>
-                  My Recipe App
-                </Heading>
+      <Box bgGradient="linear(to-r, blue.300, green.400, orange.200)">
+        <div className="App">
+          {selectedItem ? (
+            <RecipeItemPage recipe={selectedItem} clickFn={setSelectedItem} />
+          ) : (
+            <>
+              <Heading color="whitesmoke" m={'6'}>
+                My Recipe App
+              </Heading>
 
-                <RecipeSearch clickFn={setSelectedItem} />
-              </>
-            )}
-          </div>
-        </Box>
+              <RecipeSearch clickFn={setSelectedItem} />
+            </>
+          )}
+        </div>
       </Box>
     </>
   );

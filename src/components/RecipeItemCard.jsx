@@ -46,7 +46,7 @@ export const RecipeItemCard = ({ recipe, clickFn }) => {
           borderColor={'gray.300'}
           borderRadius="full"
           overflow="hidden"
-          minHeight={'70vh'}
+          minHeight={'80vh'}
         >
           <Image h={64} w="sm" src={recipe.recipe.image} />
           {dishTypes.length > 0 ? (
