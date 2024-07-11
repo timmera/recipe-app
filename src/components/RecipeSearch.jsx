@@ -25,8 +25,20 @@ export const RecipeSearch = ({ clickFn }) => {
         width={{ base: '60vw', md: '600px' }}
         mb={8}
       />
-      {matchedRecipes.length > 0 ? (
-        <RecipeListPage clickFn={clickFn} recipes={matchedRecipes} />
+      {matchedRecipes.length > 1 ? (
+        <>
+          <Badge colorScheme="green" mb={'4'}>
+            Found {matchedRecipes.length} recipes
+          </Badge>
+          <RecipeListPage clickFn={clickFn} recipes={matchedRecipes} />
+        </>
+      ) : matchedRecipes.length == 1 ? (
+        <>
+          <Badge colorScheme="green" mb={'4'}>
+            Found {matchedRecipes.length} recipe
+          </Badge>
+          <RecipeListPage clickFn={clickFn} recipes={matchedRecipes} />
+        </>
       ) : (
         <Box minH={'100vh'}>
           <Badge variant={'solid'} colorScheme={'red'}>
