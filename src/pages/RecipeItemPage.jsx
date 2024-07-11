@@ -1,4 +1,13 @@
-import { Box, Flex, Heading, Spacer, Image, Tag, Text } from '@chakra-ui/react';
+import {
+  Badge,
+  Box,
+  Flex,
+  Heading,
+  Spacer,
+  Image,
+  Tag,
+  Text,
+} from '@chakra-ui/react';
 import { Button } from '../components/ui/Button';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import '../App.css';
@@ -9,10 +18,11 @@ export const RecipeItemPage = ({ recipe }) => {
   const dietLabels = recipe.recipe.dietLabels;
   const ingredients = recipe.recipe.ingredientLines;
   const cookingTime = recipe.recipe.totalTime;
+  const matchVeganHealthLabel = healthLabels.includes('Vegan');
   return (
     <>
       <Box
-        h={'100vh'}
+        minH={'100vh'}
         justify="center"
         alignItems="center"
         gap={6}
@@ -57,6 +67,11 @@ export const RecipeItemPage = ({ recipe }) => {
             <Box mb="8" noOfLines={1}>
               <Text fontSize="2xl" fontWeight="bold">
                 {recipe.recipe.label}
+                {matchVeganHealthLabel ? (
+                  <Badge variant="solid" colorScheme="green" ml="2">
+                    <Text>Vegan</Text>
+                  </Badge>
+                ) : null}
               </Text>
             </Box>
           </Flex>
@@ -64,21 +79,25 @@ export const RecipeItemPage = ({ recipe }) => {
             <Box>
               <Box color="gray.600" fontSize="sm">
                 <Heading size={'xs'} color={'gray.600'}>
-                  Cuisine Type:{' '}
+                  Cuisine Type:
                 </Heading>
                 <Text mb={2}>{recipe.recipe.cuisineType}</Text>
                 <Heading size={'xs'} color={'gray.600'}>
-                  Meal Type:{' '}
+                  Meal Type:
                 </Heading>
                 <Text mb={2}>{recipe.recipe.mealType}</Text>
                 <Heading size={'xs'} color={'gray.600'}>
                   Total cooking time:
                 </Heading>
                 <Text mb={2}>{`${cookingTime} minutes`}</Text>
+                <Heading size={'xs'} color={'gray.600'}>
+                  Total nutrients:
+                </Heading>
+                <Text mb={2}>TODO</Text>
               </Box>
             </Box>
             <Spacer />
-            <Box color="gray.800" fontSize="sm" minH={'100%'} maxW={'20vw'}>
+            <Box color="gray.800" fontSize="sm" minH={'100%'} maxW={'300px'}>
               <Heading size={'xs'} color={'gray.600'} mb={'2'}>
                 Ingredients
               </Heading>
@@ -90,7 +109,7 @@ export const RecipeItemPage = ({ recipe }) => {
               ))}
             </Box>
             <Spacer />
-            <Box maxW={'20vw'}>
+            <Box maxW={'200px'}>
               <Heading size={'xs'} color={'green.600'} mb={'2'}>
                 Health
               </Heading>

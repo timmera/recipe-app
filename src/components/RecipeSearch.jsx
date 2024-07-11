@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Box, Badge } from '@chakra-ui/react';
 import { TextInput } from './ui/TextInput';
 import { RecipeListPage } from '../pages/RecipeListPage';
 import { data } from '../utils/data';
@@ -24,8 +25,15 @@ export const RecipeSearch = ({ clickFn }) => {
         width={{ base: '60vw', md: '600px' }}
         mb={8}
       />
-
-      <RecipeListPage clickFn={clickFn} recipes={matchedRecipes} />
+      {matchedRecipes.length > 0 ? (
+        <RecipeListPage clickFn={clickFn} recipes={matchedRecipes} />
+      ) : (
+        <Box minH={'100vh'}>
+          <Badge variant={'solid'} colorScheme={'red'}>
+            No results found!
+          </Badge>
+        </Box>
+      )}
     </>
   );
 };
