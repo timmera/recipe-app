@@ -18,6 +18,18 @@ export const RecipeItemPage = ({ recipe }) => {
   const dietLabels = recipe.recipe.dietLabels;
   const ingredients = recipe.recipe.ingredientLines;
   const cookingTime = recipe.recipe.totalTime;
+  const energy = recipe.recipe.totalNutrients.ENERC_KCAL;
+  const energyQuantityRounded = Math.round(energy.quantity);
+  const protein = recipe.recipe.totalNutrients.PROCNT;
+  const proteinQuantityRounded = Math.round(protein.quantity);
+  const fat = recipe.recipe.totalNutrients.FAT;
+  const fatQuantityRounded = Math.round(fat.quantity);
+  const carbs = recipe.recipe.totalNutrients.CHOCDF;
+  const carbsQuantityRounded = Math.round(carbs.quantity);
+  const cholesterol = recipe.recipe.totalNutrients.CHOLE;
+  const cholesterolQuantityRounded = Math.round(cholesterol.quantity);
+  const sodium = recipe.recipe.totalNutrients.NA;
+  const sodiumQuantityRounded = Math.round(sodium.quantity);
   const matchVeganHealthLabel = healthLabels.includes('Vegan');
   return (
     <>
@@ -77,7 +89,7 @@ export const RecipeItemPage = ({ recipe }) => {
           </Flex>
           <Flex>
             <Box>
-              <Box color="gray.600" fontSize="sm">
+              <Box color="gray.800" fontSize="sm">
                 <Heading size={'xs'} color={'gray.600'}>
                   Cuisine Type:
                 </Heading>
@@ -93,7 +105,24 @@ export const RecipeItemPage = ({ recipe }) => {
                 <Heading size={'xs'} color={'gray.600'}>
                   Total nutrients:
                 </Heading>
-                <Text mb={2}>TODO</Text>
+                <Text>
+                  Energy: {energyQuantityRounded} {energy.unit}
+                </Text>
+                <Text>
+                  Protein: {proteinQuantityRounded} {protein.unit}
+                </Text>
+                <Text>
+                  Fat: {fatQuantityRounded} {fat.unit}
+                </Text>
+                <Text>
+                  Carbs: {carbsQuantityRounded} {carbs.unit}
+                </Text>
+                <Text>
+                  Cholesterol: {cholesterolQuantityRounded} {cholesterol.unit}
+                </Text>
+                <Text>
+                  Sodium: {sodiumQuantityRounded} {sodium.unit}
+                </Text>
               </Box>
             </Box>
             <Spacer />
