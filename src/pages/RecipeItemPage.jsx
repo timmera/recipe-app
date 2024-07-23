@@ -42,7 +42,7 @@ export const RecipeItemPage = ({ recipe }) => {
         sx={{
           boxShadow:
             '0 1px 1px rgba(0,0,0,0.25), 0 2px 2px rgba(0,0,0,0.20), 0 4px 4px rgba(0,0,0,0.15), 0 8px 8px rgba(0,0,0,0.10), 0 16px 16px rgba(0,0,0,0.05)',
-          transition: '0.4s ease-in-out',
+          transition: '0.2s ease-in-out',
         }}
       >
         <Image
@@ -81,7 +81,7 @@ export const RecipeItemPage = ({ recipe }) => {
                 {recipe.recipe.label}
                 {matchVeganHealthLabel ? (
                   <Badge variant="solid" colorScheme="green" ml="2">
-                    <Text>Vegan</Text>
+                    Vegan
                   </Badge>
                 ) : null}
               </Text>
