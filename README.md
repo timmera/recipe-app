@@ -6,7 +6,7 @@ This is a Recipe App that allows users to browse, search, and view various recip
 
 A live demo of the application is available at [https://recipe-app-uiw4.onrender.com/](https://recipe-app-uiw4.onrender.com/).
 
-![Live Demo Thumbnail](../recipe-app/src/assets/thumbnail.png)
+![Live Demo Thumbnail](https://raw.githubusercontent.com/timmera/recipe-app/main/src/assets/thumbnail.png)
 
 ## Technologies Used
 
